@@ -8,9 +8,9 @@ public class ReadText {
         String actOnLine(String line);
     }
 
-    public static String readFile(String filePath, Actioner actioner) {
+    public static String readFile(File file, Actioner actioner) {
         try {
-            Reader reader = new FileReader(filePath);
+            Reader reader = new FileReader(file);
             return read(reader, actioner);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -18,8 +18,8 @@ public class ReadText {
         return "";
     }
 
-    public static String readFile(String filePath) {
-        return readFile(filePath, null);
+    public static String readFile(File file) {
+        return readFile(file, null);
     }
 
     public static String readText(String text, Actioner actioner) {
