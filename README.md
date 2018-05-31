@@ -1,12 +1,16 @@
-This is a java lib for commonly used String manipulation
+# This is a java lib for commonly used String manipulation
+
 ## Insert a String in between two elements!
-Stringer.insertText(String source, String insertText, String textOnTheLeft, String textOnTheRight);
+Stringer.insertText(String source, String insertText, String textOnTheLeft, String textOnTheRight);  
+Stringer.insertText(File textFile, String insertText, String textOnTheLeft, String textOnTheRight);
 >**Example:** 
 String result = Stringer.insertText("aZ", "@", "a", "Z");
 //result = a@Z
 
 ## Append a String to the start of each line
-Stringer.appendLineStart(String source, String appendString);
+Stringer.appendLineStart(String source, String appendString);  
+Stringer.appendLineStart(File textFile, String appendString);
+
 >**Example:** 
 String result = Stringer.appendLineStart("aZ", "@");
 //result = @aZ
@@ -16,7 +20,8 @@ String result = Stringer.appendLineStart("aZ\n"+"aD", "@");
 //result = @aZ@aD
 
 ## Append a String to the end of each line
-Stringer.appendLineEnd(String source, String appendString);
+Stringer.appendLineEnd(String source, String appendString);  
+Stringer.appendLineEnd(File textFile, String appendString);
 >**Example:** 
 String result = Stringer.appendLineEnd("aZ", "@");
 //result = aZ@
