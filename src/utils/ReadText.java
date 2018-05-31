@@ -40,6 +40,7 @@ public class ReadText {
                 } else {
                     sb.append(line);
                 }
+                sb.append(System.lineSeparator());
                 line = br.readLine();
             }
             result = sb.toString();
