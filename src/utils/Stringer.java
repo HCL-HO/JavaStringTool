@@ -96,4 +96,36 @@ public class Stringer {
         };
         return ReadText.readFile(source, actioner);
     }
+
+    /*
+     *               Remove String In Between Two Strings
+     *
+     * */
+    public static String removeBetween(String source, String removeText, String textOnTheLeft, String textOnTheRight) {
+        ReadText.Actioner actioner = new ReadText.Actioner() {
+            @Override
+            public String actOnLine(String line) {
+                return doRemoveBetween(line, removeText, textOnTheLeft, textOnTheRight);
+            }
+        };
+        return ReadText.readText(source, actioner);
+    }
+
+    private static String doRemoveBetween(String line, String remove, String textOnTheLeft, String textOnTheRight) {
+        int leftIndex = line.indexOf(textOnTheLeft);
+        while (leftIndex != -1) {
+            int rightIndex = line.indexOf(textOnTheRight, leftIndex);
+            String betweenText = line.subSequence(leftIndex + textOnTheLeft.length(), rightIndex).toString();
+            betweenText = betweenText.replace(remove, "");
+            line = line.substring(0, leftIndex + 1) + betweenText + line.substring(rightIndex - 1 + textOnTheRight.length());
+            leftIndex = line.indexOf(textOnTheLeft, leftIndex + 1);
+        }
+        return line;
+    }
+
+    public static String removeBetween(File file, String removeText, String textOnTheLeft, String textOnTheRight) {
+        return "";
+    }
+
+
 }
