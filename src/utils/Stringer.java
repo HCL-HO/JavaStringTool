@@ -124,8 +124,62 @@ public class Stringer {
     }
 
     public static String removeBetween(File file, String removeText, String textOnTheLeft, String textOnTheRight) {
-        return "";
+        ReadText.Actioner actioner = new ReadText.Actioner() {
+            @Override
+            public String actOnLine(String line) {
+                return doRemoveBetween(line, removeText, textOnTheLeft, textOnTheRight);
+            }
+        };
+        return ReadText.readFile(file, actioner);
     }
 
+    /*
+     *               Remove String In At The Start if Each Line
+     *
+     * */
 
+    public static String removeLineStart(String source, String removeText) {
+        ReadText.Actioner actioner = new ReadText.Actioner() {
+            @Override
+            public String actOnLine(String line) {
+                return line.startsWith(removeText) ? line.substring(removeText.length()) : line;
+            }
+        };
+        return ReadText.readText(source, actioner);
+    }
+
+    public static String removeLineStart(File file, String removeText) {
+        ReadText.Actioner actioner = new ReadText.Actioner() {
+            @Override
+            public String actOnLine(String line) {
+                return line.startsWith(removeText) ? line.substring(removeText.length()) : line;
+            }
+        };
+        return ReadText.readFile(file, actioner);
+    }
+
+    /*
+     *               Remove String In At The End if Each Line
+     *
+     * */
+
+    public static String removeLineEnd(String source, String removeText) {
+        ReadText.Actioner actioner = new ReadText.Actioner() {
+            @Override
+            public String actOnLine(String line) {
+                return line.endsWith(removeText) ? line.substring(0, line.length() - removeText.length()) : line;
+            }
+        };
+        return ReadText.readText(source, actioner);
+    }
+
+    public static String removeLineEnd(File file, String removeText) {
+        ReadText.Actioner actioner = new ReadText.Actioner() {
+            @Override
+            public String actOnLine(String line) {
+                return line.endsWith(removeText) ? line.substring(0, line.length() - removeText.length()) : line;
+            }
+        };
+        return ReadText.readFile(file, actioner);
+    }
 }
