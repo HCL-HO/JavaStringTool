@@ -1,2 +1,4 @@
 *.iml
 *.idea
+java/*.class
+.DS_Store
