@@ -1,4 +1,4 @@
-package utils;
+package com.clhoac.java;
 
 import java.io.*;
 
@@ -40,8 +40,10 @@ public class ReadText {
                 } else {
                     sb.append(line);
                 }
-                sb.append(System.lineSeparator());
                 line = br.readLine();
+                if(line!=null){
+                    sb.append(System.lineSeparator());
+                }
             }
             result = sb.toString();
             br.close();

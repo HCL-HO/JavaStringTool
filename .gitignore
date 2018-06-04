@@ -1,4 +1,5 @@
 *.iml
 *.idea
-java/*.class
+*.class
 .DS_Store
+build/*
