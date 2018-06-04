@@ -75,12 +75,14 @@ String result = Stringer.removeLineEnd("aZ@\n"+"aD@", "@");
 
 ## Custom Functions
 
->**Example:** 
-        ReadText.Actioner actioner = new ReadText.Actioner() {
-            @Override
-            public String actOnLine(String line) {
-                return "abc" + line + "abc";
-            }
-        };
+>**Example:**  
+<pre>
+        ReadText.Actioner actioner = new ReadText.Actioner() {  
+            @Override   
+            public String actOnLine(String line) {  
+                return "abc" + line + "abc";  
+            }  
+        };  
+</pre>
 String result = Stringer.editLines("aZ@\n"+"aD@", actioner);
 //result = abcaZ@abc\nabcaD@abc;
