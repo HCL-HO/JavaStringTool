@@ -8,7 +8,30 @@
 
 plugins {
     // Apply the java-library plugin to add support for Java Library
+    id 'maven-publish'
     id 'java-library'
+}
+
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+
+version = '0.1.0'
+group = 'org.gradle.sample'
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
+publishing {
+    repositories {
+        maven {
+            // change to point to your repo, e.g. http://my.org/repo
+            url "$buildDir/repo"
+        }
+    }
 }
 
 dependencies {
