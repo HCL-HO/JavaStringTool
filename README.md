@@ -77,7 +77,7 @@ String result = Stringer.removeLineEnd("aZ@\n"+"aD@", "@");
 
 >**Example:**  
 <pre>
-        ReadText.Actioner actioner = new ReadText.Actioner() {  
+        TextActioner actioner = new ReadText.Actioner() {  
             @Override   
             public String actOnLine(String line) {  
                 return "abc" + line + "abc";  
