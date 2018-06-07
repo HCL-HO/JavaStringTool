@@ -1,4 +1,4 @@
-package utils;
+package com.clhoac.java;
 
 import java.io.File;
 
@@ -182,4 +182,18 @@ public class Stringer {
         };
         return ReadText.readFile(file, actioner);
     }
+
+    /*
+     *  Custom Action on each line
+     * */
+
+    public static String editLines(String source, ReadText.Actioner customeActioner) {
+        return ReadText.readText(source, customeActioner);
+    }
+
+    public static String editLines(File file, ReadText.Actioner customActioner) {
+        return ReadText.readFile(file, customActioner);
+    }
+
+
 }

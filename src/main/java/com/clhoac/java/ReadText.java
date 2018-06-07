@@ -1,14 +1,11 @@
-package utils;
+package com.clhoac.java;
 
 import java.io.*;
 
 public class ReadText {
 
-    interface Actioner {
-        String actOnLine(String line);
-    }
 
-    public static String readFile(File file, Actioner actioner) {
+    public static String readFile(File file, TextActioner actioner) {
         try {
             Reader reader = new FileReader(file);
             return read(reader, actioner);
@@ -22,12 +19,12 @@ public class ReadText {
         return readFile(file, null);
     }
 
-    public static String readText(String text, Actioner actioner) {
+    public static String readText(String text, TextActioner actioner) {
         Reader reader = new StringReader(text);
         return read(reader, actioner);
     }
 
-    private static String read(Reader reader, Actioner actioner) {
+    private static String read(Reader reader, TextActioner actioner) {
         String result = "";
         try {
             BufferedReader br = new BufferedReader(
@@ -40,8 +37,10 @@ public class ReadText {
                 } else {
                     sb.append(line);
                 }
-                sb.append(System.lineSeparator());
                 line = br.readLine();
+                if(line!=null){
+                    sb.append(System.lineSeparator());
+                }
             }
             result = sb.toString();
             br.close();
