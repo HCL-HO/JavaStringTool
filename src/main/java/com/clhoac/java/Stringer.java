@@ -8,7 +8,7 @@ public class Stringer {
      *       Insert Text in-between two strings
      * */
     public static String insertText(String source, String insertText, String textOnTheLeft, String textOnTheRight) {
-        ReadText.Actioner actioner = new ReadText.Actioner() {
+        TextActioner actioner = new TextActioner() {
             @Override
             public String actOnLine(String line) {
                 return insertString(line, insertText, textOnTheLeft, textOnTheRight);
@@ -21,7 +21,7 @@ public class Stringer {
      *       Insert Text in-between two strings
      * */
     public static String insertText(File file, String insertText, String textOnTheLeft, String textOnTheRight) {
-        ReadText.Actioner actioner = new ReadText.Actioner() {
+        TextActioner actioner = new TextActioner() {
             @Override
             public String actOnLine(String line) {
                 return insertString(line, insertText, textOnTheLeft, textOnTheRight);
@@ -46,7 +46,7 @@ public class Stringer {
      *
      * */
     public static String appendLineStart(String source, String appendString) {
-        ReadText.Actioner actioner = new ReadText.Actioner() {
+        TextActioner actioner = new TextActioner() {
             @Override
             public String actOnLine(String line) {
                 return appendString + line;
@@ -60,7 +60,7 @@ public class Stringer {
      *
      * */
     public static String appendLineStart(File source, String appendString) {
-        ReadText.Actioner actioner = new ReadText.Actioner() {
+        TextActioner actioner = new TextActioner() {
             @Override
             public String actOnLine(String line) {
                 return appendString + line;
@@ -74,7 +74,7 @@ public class Stringer {
      *
      * */
     public static String appendLineEnd(String source, String appendString) {
-        ReadText.Actioner actioner = new ReadText.Actioner() {
+        TextActioner actioner = new TextActioner() {
             @Override
             public String actOnLine(String line) {
                 return line + appendString;
@@ -88,7 +88,7 @@ public class Stringer {
      *
      * */
     public static String appendLineEnd(File source, String appendString) {
-        ReadText.Actioner actioner = new ReadText.Actioner() {
+        TextActioner actioner = new TextActioner() {
             @Override
             public String actOnLine(String line) {
                 return line + appendString;
@@ -102,7 +102,7 @@ public class Stringer {
      *
      * */
     public static String removeBetween(String source, String removeText, String textOnTheLeft, String textOnTheRight) {
-        ReadText.Actioner actioner = new ReadText.Actioner() {
+        TextActioner actioner = new TextActioner() {
             @Override
             public String actOnLine(String line) {
                 return doRemoveBetween(line, removeText, textOnTheLeft, textOnTheRight);
@@ -124,7 +124,7 @@ public class Stringer {
     }
 
     public static String removeBetween(File file, String removeText, String textOnTheLeft, String textOnTheRight) {
-        ReadText.Actioner actioner = new ReadText.Actioner() {
+        TextActioner actioner = new TextActioner() {
             @Override
             public String actOnLine(String line) {
                 return doRemoveBetween(line, removeText, textOnTheLeft, textOnTheRight);
@@ -139,7 +139,7 @@ public class Stringer {
      * */
 
     public static String removeLineStart(String source, String removeText) {
-        ReadText.Actioner actioner = new ReadText.Actioner() {
+        TextActioner actioner = new TextActioner() {
             @Override
             public String actOnLine(String line) {
                 return line.startsWith(removeText) ? line.substring(removeText.length()) : line;
@@ -149,7 +149,7 @@ public class Stringer {
     }
 
     public static String removeLineStart(File file, String removeText) {
-        ReadText.Actioner actioner = new ReadText.Actioner() {
+        TextActioner actioner = new TextActioner() {
             @Override
             public String actOnLine(String line) {
                 return line.startsWith(removeText) ? line.substring(removeText.length()) : line;
@@ -164,7 +164,7 @@ public class Stringer {
      * */
 
     public static String removeLineEnd(String source, String removeText) {
-        ReadText.Actioner actioner = new ReadText.Actioner() {
+        TextActioner actioner = new TextActioner() {
             @Override
             public String actOnLine(String line) {
                 return line.endsWith(removeText) ? line.substring(0, line.length() - removeText.length()) : line;
@@ -174,7 +174,7 @@ public class Stringer {
     }
 
     public static String removeLineEnd(File file, String removeText) {
-        ReadText.Actioner actioner = new ReadText.Actioner() {
+        TextActioner actioner = new TextActioner() {
             @Override
             public String actOnLine(String line) {
                 return line.endsWith(removeText) ? line.substring(0, line.length() - removeText.length()) : line;
@@ -187,11 +187,11 @@ public class Stringer {
      *  Custom Action on each line
      * */
 
-    public static String editLines(String source, ReadText.Actioner customeActioner) {
+    public static String editLines(String source, TextActioner customeActioner) {
         return ReadText.readText(source, customeActioner);
     }
 
-    public static String editLines(File file, ReadText.Actioner customActioner) {
+    public static String editLines(File file, TextActioner customActioner) {
         return ReadText.readFile(file, customActioner);
     }
 
