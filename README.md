@@ -44,8 +44,8 @@ String result = Stringer.appendLineEnd("aZ\n"+"aD", "@");
 String result = Stringer.removeBetween("a@@@@@@Z", "@", "a", "Z");
 //result = aZ
 
-- Stringer.removeBetween(String source, String insertText, String textOnTheLeft, String textOnTheRight);  
-- Stringer.removeBetween(File textFile, String insertText, String textOnTheLeft, String textOnTheRight);
+- Stringer.removeBetween(String source, String removeText, String textOnTheLeft, String textOnTheRight);  
+- Stringer.removeBetween(File textFile, String removeText, String textOnTheLeft, String textOnTheRight);
 
 ## Start of each line
 
