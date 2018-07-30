@@ -54,7 +54,7 @@ String result = Stringer.removeLineStart("@@@aZ", "@");
 //result = @@aZ
 
 >**Example2:** 
-String result = Stringer.appendLineStart("@aZ\n"+"@aD", "@");
+String result = Stringer.removeLineStart("@aZ\n"+"@aD", "@");
 //result = aZ\naD
 
 - Stringer.removeLineStart(String source, String appendString);  
