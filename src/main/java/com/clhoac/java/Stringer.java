@@ -14,7 +14,7 @@ public class Stringer {
                 return insertString(line, insertText, textOnTheLeft, textOnTheRight);
             }
         };
-        return ReadText.readText(source, actioner);
+        return Processor.proccess(source, actioner);
     }
 
     /*
@@ -27,7 +27,7 @@ public class Stringer {
                 return insertString(line, insertText, textOnTheLeft, textOnTheRight);
             }
         };
-        return ReadText.readFile(file, actioner);
+        return Processor.proccess(file, actioner);
     }
 
     private static String insertString(String line, String insertText, String textOnTheLeft, String textOnTheRight) {
@@ -52,7 +52,7 @@ public class Stringer {
                 return appendString + line;
             }
         };
-        return ReadText.readText(source, actioner);
+        return Processor.proccess(source, actioner);
     }
 
     /*
@@ -66,7 +66,7 @@ public class Stringer {
                 return appendString + line;
             }
         };
-        return ReadText.readFile(source, actioner);
+        return Processor.proccess(source, actioner);
     }
 
     /*
@@ -80,7 +80,7 @@ public class Stringer {
                 return line + appendString;
             }
         };
-        return ReadText.readText(source, actioner);
+        return Processor.proccess(source, actioner);
     }
 
     /*
@@ -94,7 +94,7 @@ public class Stringer {
                 return line + appendString;
             }
         };
-        return ReadText.readFile(source, actioner);
+        return Processor.proccess(source, actioner);
     }
 
     /*
@@ -108,7 +108,7 @@ public class Stringer {
                 return doRemoveBetween(line, removeText, textOnTheLeft, textOnTheRight);
             }
         };
-        return ReadText.readText(source, actioner);
+        return Processor.proccess(source, actioner);
     }
 
     private static String doRemoveBetween(String line, String remove, String textOnTheLeft, String textOnTheRight) {
@@ -130,7 +130,7 @@ public class Stringer {
                 return doRemoveBetween(line, removeText, textOnTheLeft, textOnTheRight);
             }
         };
-        return ReadText.readFile(file, actioner);
+        return Processor.proccess(file, actioner);
     }
 
     /*
@@ -145,7 +145,7 @@ public class Stringer {
                 return line.startsWith(removeText) ? line.substring(removeText.length()) : line;
             }
         };
-        return ReadText.readText(source, actioner);
+        return Processor.proccess(source, actioner);
     }
 
     public static String removeLineStart(File file, String removeText) {
@@ -155,7 +155,7 @@ public class Stringer {
                 return line.startsWith(removeText) ? line.substring(removeText.length()) : line;
             }
         };
-        return ReadText.readFile(file, actioner);
+        return Processor.proccess(file, actioner);
     }
 
     /*
@@ -170,7 +170,7 @@ public class Stringer {
                 return line.endsWith(removeText) ? line.substring(0, line.length() - removeText.length()) : line;
             }
         };
-        return ReadText.readText(source, actioner);
+        return Processor.proccess(source, actioner);
     }
 
     public static String removeLineEnd(File file, String removeText) {
@@ -180,7 +180,7 @@ public class Stringer {
                 return line.endsWith(removeText) ? line.substring(0, line.length() - removeText.length()) : line;
             }
         };
-        return ReadText.readFile(file, actioner);
+        return Processor.proccess(file, actioner);
     }
 
     /*
@@ -188,11 +188,11 @@ public class Stringer {
      * */
 
     public static String editLines(String source, TextActioner customeActioner) {
-        return ReadText.readText(source, customeActioner);
+        return Processor.proccess(source, customeActioner);
     }
 
     public static String editLines(File file, TextActioner customActioner) {
-        return ReadText.readFile(file, customActioner);
+        return Processor.proccess(file, customActioner);
     }
 
 
